@@ -159,12 +159,14 @@
             <i class="fas fa-vr-cardboard"></i> عرض في الواقع المعزز
         </button>
 
-        <model-viewer
+       <model-viewer
     id="envModel"
     src="modle.glb" 
     alt="3D Environmental Model"
     ar
+    ar-placement="wall"
     ar-modes="webxr scene-viewer quick-look"
+    interaction-prompt="none"
     auto-rotate
     shadow-intensity="1"
     autoplay>
