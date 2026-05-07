@@ -8,12 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        model-viewer {
-    width: 100%;
-    height: 400px; /* Give it a set height */
-    background-color: transparent; /* Remove the solid #111 background */
-    margin: 20px 0;
-}
         :root {
             --primary-green: #1b4d3e;
             --accent-green: #27ae60;
@@ -21,14 +15,13 @@
         }
 
         body {
-         margin: 0;
-        /* Update this line */
-        font-family: 'Alexandria', sans-serif; 
-        background-color: var(--bg-color);
-        color: #2d3436;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+            margin: 0;
+            font-family: 'Alexandria', sans-serif; 
+            background-color: var(--bg-color);
+            color: #2d3436;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -45,21 +38,26 @@
             object-fit: contain;
         }
 
-    
+        /* Fixed model-viewer styling */
+        model-viewer {
+            width: 100%;
+            height: 400px; 
+            background-color: transparent;
+            margin: 20px 0;
+        }
+
         .action-container {
             padding: 10px 25px 40px 25px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            /* Keeps the buttons centered while title stays right */
             align-items: center; 
         }
 
         .title-group {
-            /* Changed to right align */
             text-align: right;
             width: 100%;
-            max-width: 320px; /* Matches button width for a clean edge */
+            max-width: 320px;
             margin-bottom: 10px;
         }
 
@@ -76,35 +74,25 @@
             margin-top: 8px;
         }
 
-     .btn {
-    width: 100%;
-    max-width: 320px;
-    /* Force both elements to calculate width the same way */
-    box-sizing: border-box; 
-    
-    /* Exact same padding for both */
-    padding: 16px 20px; 
-    
-    font-size: 1.1rem;
-    border-radius: 12px;
-    text-decoration: none;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    
-    font-family: 'Alexandria', sans-serif;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    
-    /* Remove default browser borders */
-    border: none; 
-    cursor: pointer;
-    
-    /* Ensures text doesn't wrap oddly */
-    white-space: nowrap; 
-}
+        .btn {
+            width: 100%;
+            max-width: 320px;
+            box-sizing: border-box; 
+            padding: 16px 20px; 
+            font-size: 1.1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Alexandria', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none; 
+            cursor: pointer;
+            white-space: nowrap; 
+        }
 
         .btn-quiz {
             background-color: var(--accent-green);
@@ -156,48 +144,37 @@
         <img src="logo2.png" alt="Logo Right" class="header-logo">
     </header>
 
-    <div class="action-container">  <br> 
+    <div class="action-container">
         <div class="title-group">
-         <h1>يوم البيئة الوطني</h1>
-            <div class="slogan">اكـتـشــف الـعـالــم...
-<br>مــن مـنـظــور جـديــــد<br></div>
+            <h1>يوم البيئة الوطني</h1>
+            <div class="slogan">اكـتـشــف الـعـالــم...<br>مــن مـنـظــور جـديــــد</div>
         </div>
-<br><br>
+
         <a href="YOUR_OUTLOOK_LINK_HERE" class="btn btn-quiz">
             <i class="fas fa-edit"></i> ابدأ الاختبار الآن
         </a>
-<br>
+
         <button class="btn btn-ar" onclick="document.querySelector('#envModel').activateAR()">
-    <i class="fas fa-vr-cardboard"></i> عرض في الواقع المعزز
-</button>
+            <i class="fas fa-vr-cardboard"></i> عرض في الواقع المعزز
+        </button>
 
-
-
-<model-viewer
-    id="envModle"
-    src="model.glb" 
-    ios-src="model.usdz"
-    alt="3D Environmental Model"
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    camera-controls
-    auto-rotate
-    shadow-intensity="1"
-    autoplay>
-</model-viewer>
-
-</model-viewer>
-
-
-
-
-
+        <model-viewer
+            id="envModel"
+            src="modle.glb" 
+            alt="3D Environmental Model"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            camera-controls
+            auto-rotate
+            shadow-intensity="1"
+            autoplay>
+        </model-viewer>
     </div>
 
     <footer>
         <div class="social-icons">
-            <a href="https://www.instagram.com/sce_bh?igsh=NDdyd3QxbWVndThr"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@sce_bh4692?si=ByaMidlGMHfPcOSN"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/sce_bh"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@sce_bh4692"><i class="fab fa-youtube"></i></a>
             <a href="https://www.sce.gov.bh" target="_blank"><i class="fas fa-globe"></i></a>
         </div>
         <div class="copyright">
