@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يوم البيئة العالمي | البحرين</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        model-viewer {
+    width: 100%;
+    height: 400px; /* Give it a set height */
+    background-color: transparent; /* Remove the solid #111 background */
+    margin: 20px 0;
+}
+        :root {
+            --primary-green: #1b4d3e;
+            --accent-green: #27ae60;
+            --bg-color: #f8fbf9;
+        }
+
+        body {
+         margin: 0;
+        /* Update this line */
+        font-family: 'Alexandria', sans-serif; 
+        background-color: var(--bg-color);
+        color: #2d3436;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: transparent;
+        }
+
+        .header-logo {
+            width: 70px;
+            height: auto;
+            object-fit: contain;
+        }
+
+    
+        .action-container {
+            padding: 10px 25px 40px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            /* Keeps the buttons centered while title stays right */
+            align-items: center; 
+        }
+
+        .title-group {
+            /* Changed to right align */
+            text-align: right;
+            width: 100%;
+            max-width: 320px; /* Matches button width for a clean edge */
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: #0B1A46;
+            margin: 0;
+        }
+
+        .slogan {
+            font-size: 1rem;
+            color: #00CC66;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+     .btn {
+    width: 100%;
+    max-width: 320px;
+    /* Force both elements to calculate width the same way */
+    box-sizing: border-box; 
+    
+    /* Exact same padding for both */
+    padding: 16px 20px; 
+    
+    font-size: 1.1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    font-family: 'Alexandria', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    
+    /* Remove default browser borders */
+    border: none; 
+    cursor: pointer;
+    
+    /* Ensures text doesn't wrap oddly */
+    white-space: nowrap; 
+}
+
+        .btn-quiz {
+            background-color: var(--accent-green);
+            color: white;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
+        }
+
+        .btn-ar {
+            background-color: var(--primary-green);
+            color: white;
+            box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2);
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        footer {
+            margin-top: auto;
+            background: #fff;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 15px;
+        }
+
+        .social-icons a {
+            color: var(--primary-green);
+            font-size: 1.6rem;
+            transition: color 0.3s;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="mainLogo.png" alt="Logo Left" class="header-logo">
+        <img src="logo2.png" alt="Logo Right" class="header-logo">
+    </header>
+
+    <div class="action-container">  <br> 
+        <div class="title-group">
+         <h1>يوم البيئة الوطني</h1>
+            <div class="slogan">اكـتـشــف الـعـالــم...
+<br>مــن مـنـظــور جـديــــد<br></div>
+        </div>
+<br><br>
+        <a href="YOUR_OUTLOOK_LINK_HERE" class="btn btn-quiz">
+            <i class="fas fa-edit"></i> ابدأ الاختبار الآن
+        </a>
+<br>
+        <button class="btn btn-ar" onclick="document.querySelector('#envModel').activateAR()">
+            <i class="fas fa-vr-cardboard"></i> عرض في الواقع المعزز
+        </button>
+
+
+
+<model-viewer
+    id="envModle"
+    src="model.glb" 
+    ios-src="model.usdz"
+    alt="3D Environmental Model"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    autoplay>
+</model-viewer>
+
+</model-viewer>
+
+
+
+
+
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/sce_bh?igsh=NDdyd3QxbWVndThr"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@sce_bh4692?si=ByaMidlGMHfPcOSN"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.sce.gov.bh" target="_blank"><i class="fas fa-globe"></i></a>
+        </div>
+        <div class="copyright">
+            &copy; يوم البيئة العالمي - مملكة البحرين 2026
+        </div>
+    </footer>
+
+</body>
+</html>
