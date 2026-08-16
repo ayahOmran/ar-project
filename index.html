@@ -158,7 +158,6 @@
       backdrop-filter: blur(5px);
     }
 
-    /* Force display when active */
     .modal-overlay.active {
       display: flex !important;
     }
@@ -307,13 +306,11 @@
 
     <p class="explore-text" id="exploreText">اضغط أدناه لاستكشاف نموذج ثلاثة الأبعاد</p>
 
-    <!-- Main Button to Open Modal containing 3D Model -->
     <button class="btn btn-explore" id="openModalBtn">
       <i class="fas fa-cube"></i> <span id="exploreBtnText">اضغط للاستكشاف</span>
     </button>
   </div>
 
-  <!-- Modal Overlay containing the 3D Model & AR Controls -->
   <div class="modal-overlay" id="modelModal">
     <div class="modal-content">
       <button class="close-btn" id="closeModalBtn">&times;</button>
@@ -324,7 +321,6 @@
         ios-src="modleV2.usdz"
         alt="3D Environmental Model"
         ar
-        ar-placement="wall"
         ar-modes="scene-viewer webxr quick-look"
         camera-controls
         touch-action="pan-y"
@@ -349,7 +345,8 @@
 
       </model-viewer>
 
-      <button class="btn btn-ar-trigger" onclick="launchAR()">
+      <!-- Custom AR Trigger Button -->
+      <button class="btn btn-ar-trigger" id="arBtn" onclick="launchAR()">
         <i class="fas fa-vr-cardboard"></i> <span id="arBtnText">عرض في الواقع المعزز</span>
       </button>
     </div>
@@ -421,7 +418,6 @@
       document.getElementById('copyrightText').innerHTML = langData.copyright;
       document.getElementById('langToggleBtn').innerText = langData.toggleBtn;
       
-      // Reset hotspot button styles and message when toggling language
       document.getElementById('feedbackText').innerText = "";
       document.getElementById('opt1').style.backgroundColor = "white";
       document.getElementById('opt1').style.color = "var(--primary-green)";
@@ -429,7 +425,6 @@
       document.getElementById('opt2').style.color = "var(--primary-green)";
     }
 
-    // Modal Control Event Listeners
     const modal = document.getElementById('modelModal');
     const openBtn = document.getElementById('openModalBtn');
     const closeBtn = document.getElementById('closeModalBtn');
@@ -442,7 +437,6 @@
       modal.classList.remove('active');
     });
 
-    // Close when clicking background outside modal content
     modal.addEventListener('click', function(e) {
       if (e.target === modal) {
         modal.classList.remove('active');
@@ -453,7 +447,6 @@
       const langData = translations[currentLang];
       const feedback = document.getElementById('feedbackText');
       
-      // Reset option buttons styling
       document.getElementById('opt1').style.backgroundColor = "white";
       document.getElementById('opt1').style.color = "var(--primary-green)";
       document.getElementById('opt2').style.backgroundColor = "white";
@@ -472,10 +465,28 @@
       }
     }
 
-    function launchAR() {
+    // Improved launchAR function with async/custom element readiness check
+    async function launchAR() {
       const viewer = document.querySelector('#envModel');
-      if (viewer && viewer.activateAR) {
-        viewer.activateAR();
+      
+      if (!viewer) {
+        console.error("Model viewer element not found.");
+        return;
+      }
+
+      // Ensure custom element is defined before calling activateAR()
+      await customElements.whenDefined('model-viewer');
+
+      if (viewer.canActivateAR) {
+        try {
+          viewer.activateAR();
+        } catch (err) {
+          console.error("Error launching AR:", err);
+        }
+      } else {
+        alert(currentLang === 'ar' 
+          ? "الواقع المعزز غير مدعوم على هذا الجهاز أو المتصفح. يرجى التأكد من استخدام هاتف محمول برابط HTTPS." 
+          : "AR is not supported on this device/browser. Please test on a mobile device over HTTPS.");
       }
     }
   </script>
