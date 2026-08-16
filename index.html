@@ -1,194 +1,357 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>يوم البيئة العالمي | البحرين</title>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-green: #1b4d3e;
-            --accent-green: #27ae60;
-            --bg-color: #f8fbf9;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">يوم البيئة الوطني | البحرين</title>
 
-        body {
-            margin: 0;
-            font-family: 'Alexandria', sans-serif; 
-            background-color: var(--bg-color);
-            color: #2d3436;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+  <!-- Google Font: Alexandria -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: transparent;
-        }
+  <!-- Model Viewer Module -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        .header-logo {
-            width: 70px;
-            height: auto;
-            object-fit: contain;
-        }
+  <style>
+    :root {
+      --primary-green: #1b4d3e;
+      --accent-green: #27ae60;
+      --bg-color: #f8fbf9;
+      --font-family: 'Alexandria', sans-serif;
+    }
 
-       model-viewer {
-    width: 100%;
-    height: 400px; 
-    background-color: transparent;
-    margin: 20px 0;
-    /* This line prevents any user interaction */
-    pointer-events: none; 
-}
+    * {
+      font-family: var(--font-family);
+      box-sizing: border-box;
+    }
 
-        .action-container {
-            padding: 10px 25px 40px 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center; 
-        }
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: #2d3436;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        .title-group {
-            text-align: right;
-            width: 100%;
-            max-width: 320px;
-            margin-bottom: 10px;
-        }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: transparent;
+    }
 
-        h1 {
-            font-size: 1.6rem;
-            color: #0B1A46;
-            margin: 0;
-        }
+    .header-logo {
+      width: 70px;
+      height: auto;
+      object-fit: contain;
+    }
 
-        .slogan {
-            font-size: 1rem;
-            color: #00CC66;
-            font-weight: bold;
-            margin-top: 8px;
-        }
+    .lang-btn {
+      background-color: transparent;
+      border: 2px solid var(--primary-green);
+      color: var(--primary-green);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        .btn {
-            width: 100%;
-            max-width: 320px;
-            box-sizing: border-box; 
-            padding: 16px 20px; 
-            font-size: 1.1rem;
-            border-radius: 12px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-family: 'Alexandria', sans-serif;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: none; 
-            cursor: pointer;
-            white-space: nowrap; 
-        }
+    .lang-btn:hover {
+      background-color: var(--primary-green);
+      color: white;
+    }
 
-        .btn-quiz {
-            background-color: var(--accent-green);
-            color: white;
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
-        }
+    .action-container {
+      padding: 10px 25px 40px 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
 
-        .btn-ar {
-            background-color: var(--primary-green);
-            color: white;
-            box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2);
-        }
+    .title-group {
+      text-align: right;
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 10px;
+    }
 
-        .btn:active {
-            transform: scale(0.96);
-        }
+    [dir="ltr"] .title-group {
+      text-align: left;
+    }
 
-        footer {
-            margin-top: auto;
-            background: #fff;
-            padding: 25px;
-            text-align: center;
-            border-top: 1px solid #eee;
-        }
+    h1 {
+      font-size: 1.6rem;
+      color: #0B1A46;
+      margin: 0;
+      font-weight: 800;
+    }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 15px;
-        }
+    .slogan {
+      font-size: 1rem;
+      color: #00CC66;
+      font-weight: 700;
+      margin-top: 8px;
+    }
 
-        .social-icons a {
-            color: var(--primary-green);
-            font-size: 1.6rem;
-            transition: color 0.3s;
-        }
+    /* 3D Model Container */
+    model-viewer {
+      width: 100%;
+      max-width: 600px;
+      height: 450px;
+      background-color: transparent;
+      margin: 10px 0;
+    }
 
-        .copyright {
-            font-size: 0.8rem;
-            color: #95a5a6;
-        }
-    </style>
+    /* Floating Hotspot Card Styling */
+    .hotspot-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 2px solid var(--primary-green);
+      border-radius: 16px;
+      padding: 15px;
+      width: 260px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      animation: floatPulse 3s infinite ease-in-out;
+    }
+
+    @keyframes floatPulse {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hotspot-question {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #0B1A46;
+      margin-bottom: 12px;
+    }
+
+    .option-btn {
+      width: 100%;
+      padding: 8px 12px;
+      margin: 4px 0;
+      border: 1px solid var(--accent-green);
+      background-color: white;
+      color: var(--primary-green);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .option-btn:hover {
+      background-color: var(--accent-green);
+      color: white;
+    }
+
+    .feedback-msg {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      min-height: 18px;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-ar {
+      background-color: var(--primary-green);
+      color: white;
+      box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2);
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    footer {
+      margin-top: auto;
+      background: #fff;
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 15px;
+    }
+
+    .social-icons a {
+      color: var(--primary-green);
+      font-size: 1.6rem;
+      transition: color 0.3s;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: #95a5a6;
+      font-weight: 400;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <img src="mainLogo.png" alt="Logo Left" class="header-logo">
-        <img src="logo2.png" alt="Logo Right" class="header-logo">
-    </header>
+  <header>
+    <img src="mainLogo.png" alt="Logo Left" class="header-logo">
+    <button id="langToggleBtn" class="lang-btn" onclick="toggleLanguage()">EN</button>
+    <img src="logo2.png" alt="Logo Right" class="header-logo">
+  </header>
 
-    <div class="action-container">
-        <div class="title-group">
-            <h1>يوم البيئة الوطني</h1>
-            <div class="slogan">اكـتـشــف الـعـالــم...<br>مــن مـنـظــور جـديــــد</div>
-        </div>
-
-        <a href="YOUR_OUTLOOK_LINK_HERE" class="btn btn-quiz">
-            <i class="fas fa-edit"></i> ابدأ الاختبار الآن
-        </a>
-
-        <button class="btn btn-ar" onclick="document.querySelector('#envModel').activateAR()">
-            <i class="fas fa-vr-cardboard"></i> عرض في الواقع المعزز
-        </button>
-
-  <model-viewer
-  id="envModel"
-  src="modleV2.glb"
-  alt="3D Environmental Model"
-  ar
-  ar-placement="wall"
-  ar-modes="scene-viewer webxr quick-look"
-  camera-controls
-  touch-action="pan-y"
-  shadow-intensity="1"
-  shadow-softness="0.5"
-  environment-image="neutral"
-  exposure="1"
-  interaction-prompt="none"
-  disable-tap
-  autoplay>
-</model-viewer>
-
+  <div class="action-container">
+    <div class="title-group">
+      <h1 id="mainHeading">يوم البيئة الوطني 2027</h1>
+      <div class="slogan" id="sloganText">اكـتـشــف الـعـالــم...<br>مــن مـنـظــور جـديــــد</div>
     </div>
 
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/sce_bh"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@sce_bh4692"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.sce.gov.bh" target="_blank"><i class="fas fa-globe"></i></a>
+    <!-- 3D Model Viewer with Interactive Floating Hotspot -->
+    <model-viewer
+      id="envModel"
+      src="modleV2.glb"
+      ios-src="modleV2.usdz"
+      alt="3D Environmental Model"
+      ar
+      ar-placement="wall"
+      ar-modes="scene-viewer webxr quick-look"
+      camera-controls
+      touch-action="pan-y"
+      shadow-intensity="1"
+      shadow-softness="0.5"
+      environment-image="neutral"
+      exposure="1"
+      interaction-prompt="none"
+      autoplay>
+
+      <!-- Floating Interactive Hotspot Slot -->
+      <div slot="hotspot-quiz" data-position="0m 1.2m 0m" data-normal="0m 0m 1m">
+        <div class="hotspot-card">
+          <div class="hotspot-question" id="quizQuestion">
+            ما هي الطريقة الأفضل للتخلص من النفايات الإلكترونية؟
+          </div>
+          <button class="option-btn" onclick="checkAnswer(true, this)" id="opt1">إعادة التدوير في المراكز المعتمدة</button>
+          <button class="option-btn" onclick="checkAnswer(false, this)" id="opt2">الرمي في سلة النفايات العادية</button>
+          <div id="feedbackText" class="feedback-msg"></div>
         </div>
-        <div class="copyright">
-            &copy; يوم البيئة العالمي - مملكة البحرين 2026
-        </div>
-    </footer>
+      </div>
+
+    </model-viewer>
+
+    <button class="btn btn-ar" onclick="launchAR()">
+      <i class="fas fa-vr-cardboard"></i> <span id="arBtnText">عرض في الواقع المعزز</span>
+    </button>
+
+  </div>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/sce_bh"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@sce_bh4692"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.sce.gov.bh" target="_blank"><i class="fas fa-globe"></i></a>
+    </div>
+    <div class="copyright" id="copyrightText">
+      &copy; يوم البيئة العالمي - مملكة البحرين 2027
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'ar';
+
+    const translations = {
+      ar: {
+        pageTitle: "يوم البيئة العالمي | البحرين",
+        heading: "يوم البيئة الوطني 2027",
+        slogan: "اكـتـشــف الـعـالــم...<br>مــن مـنـظــور جـديــــد",
+        arBtn: "عرض في الواقع المعزز",
+        question: "ما هي الطريقة الأفضل للتخلص من النفايات الإلكترونية؟",
+        opt1: "إعادة التدوير في المراكز المعتمدة",
+        opt2: "الرمي في سلة النفايات العادية",
+        correct: "إجابة صحيحة! أحسنت 🌱",
+        wrong: "إجابة خاطئة، حاول مرة أخرى ❌",
+        copyright: "&copy; يوم البيئة العالمي - مملكة البحرين 2027",
+        toggleBtn: "EN"
+      },
+      en: {
+        pageTitle: "World Environment Day | Bahrain",
+        heading: "National Environment Day 2027",
+        slogan: "Discover the world...<br>From a new perspective",
+        arBtn: "View in Augmented Reality",
+        question: "What is the best way to dispose of electronic waste?",
+        opt1: "Recycle at specialized centers",
+        opt2: "Throw in regular trash bins",
+        correct: "Correct answer! Well done 🌱",
+        wrong: "Incorrect answer, try again ❌",
+        copyright: "&copy; World Environment Day - Kingdom of Bahrain 2027",
+        toggleBtn: "عربي"
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      const langData = translations[currentLang];
+
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+      document.getElementById('pageTitle').innerText = langData.pageTitle;
+      document.getElementById('mainHeading').innerText = langData.heading;
+      document.getElementById('sloganText').innerHTML = langData.slogan;
+      document.getElementById('arBtnText').innerText = langData.arBtn;
+      document.getElementById('quizQuestion').innerText = langData.question;
+      document.getElementById('opt1').innerText = langData.opt1;
+      document.getElementById('opt2').innerText = langData.opt2;
+      document.getElementById('copyrightText').innerHTML = langData.copyright;
+      document.getElementById('langToggleBtn').innerText = langData.toggleBtn;
+      document.getElementById('feedbackText').innerText = "";
+    }
+
+    function checkAnswer(isCorrect, element) {
+      const langData = translations[currentLang];
+      const feedback = document.getElementById('feedbackText');
+      if (isCorrect) {
+        feedback.innerText = langData.correct;
+        feedback.style.color = "#27ae60";
+        element.style.backgroundColor = "#27ae60";
+        element.style.color = "#ffffff";
+      } else {
+        feedback.innerText = langData.wrong;
+        feedback.style.color = "#e74c3c";
+        element.style.backgroundColor = "#e74c3c";
+        element.style.color = "#ffffff";
+      }
+    }
+
+    function launchAR() {
+      const viewer = document.querySelector('#envModel');
+      if (viewer && viewer.activateAR) {
+        viewer.activateAR();
+      }
+    }
+  </script>
 
 </body>
 </html>
