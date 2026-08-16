@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="pageTitle">يوم البيئة الوطني | البحرين</title>
+  <title id="pageTitle">يوم البيئة العالمي | البحرين</title>
 
   <!-- Google Font: Alexandria -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,45 +67,143 @@
     }
 
     .action-container {
-      padding: 10px 25px 40px 25px;
+      padding: 20px 25px 40px 25px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
       align-items: center;
+      text-align: center;
+      flex-grow: 1;
+      justify-content: center;
     }
 
     .title-group {
-      text-align: right;
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 10px;
-    }
-
-    [dir="ltr"] .title-group {
-      text-align: left;
+      max-width: 360px;
     }
 
     h1 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       color: #0B1A46;
       margin: 0;
       font-weight: 800;
     }
 
     .slogan {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #00CC66;
       font-weight: 700;
-      margin-top: 8px;
+      margin-top: 10px;
+      line-height: 1.5;
     }
 
-    /* 3D Model Container */
+    .explore-text {
+      font-size: 1.1rem;
+      color: var(--primary-green);
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 18px 24px;
+      font-size: 1.15rem;
+      border-radius: 14px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-explore {
+      background-color: var(--primary-green);
+      color: white;
+      box-shadow: 0 6px 20px rgba(27, 77, 62, 0.25);
+    }
+
+    .btn-explore:hover {
+      background-color: #143b2f;
+      transform: translateY(-2px);
+    }
+
+    .btn-ar-trigger {
+      background-color: var(--accent-green);
+      color: white;
+      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.25);
+      margin-top: 15px;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background: var(--bg-color);
+      width: 90%;
+      max-width: 500px;
+      border-radius: 20px;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2d3436;
+      transition: background 0.2s;
+    }
+
+    [dir="ltr"] .close-btn {
+      left: auto;
+      right: 15px;
+    }
+
+    .close-btn:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    /* 3D Model Viewer Inside Modal */
     model-viewer {
       width: 100%;
-      max-width: 600px;
-      height: 450px;
+      height: 380px;
       background-color: transparent;
-      margin: 10px 0;
+      margin-top: 10px;
     }
 
     /* Floating Hotspot Card Styling */
@@ -113,8 +211,8 @@
       background: rgba(255, 255, 255, 0.95);
       border: 2px solid var(--primary-green);
       border-radius: 16px;
-      padding: 15px;
-      width: 260px;
+      padding: 14px;
+      width: 240px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       backdrop-filter: blur(8px);
       text-align: center;
@@ -127,22 +225,22 @@
     }
 
     .hotspot-question {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: #0B1A46;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .option-btn {
       width: 100%;
-      padding: 8px 12px;
-      margin: 4px 0;
+      padding: 8px 10px;
+      margin: 3px 0;
       border: 1px solid var(--accent-green);
       background-color: white;
       color: var(--primary-green);
       border-radius: 8px;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -153,38 +251,10 @@
     }
 
     .feedback-msg {
-      margin-top: 8px;
-      font-size: 0.8rem;
+      margin-top: 6px;
+      font-size: 0.78rem;
       font-weight: 700;
-      min-height: 18px;
-    }
-
-    .btn {
-      width: 100%;
-      max-width: 320px;
-      padding: 16px 20px;
-      font-size: 1.1rem;
-      border-radius: 12px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn-ar {
-      background-color: var(--primary-green);
-      color: white;
-      box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2);
-    }
-
-    .btn:active {
-      transform: scale(0.96);
+      min-height: 16px;
     }
 
     footer {
@@ -229,42 +299,54 @@
       <div class="slogan" id="sloganText">اكـتـشــف الـعـالــم...<br>مــن مـنـظــور جـديــــد</div>
     </div>
 
-    <!-- 3D Model Viewer with Interactive Floating Hotspot -->
-    <model-viewer
-      id="envModel"
-      src="modleV2.glb"
-      ios-src="modleV2.usdz"
-      alt="3D Environmental Model"
-      ar
-      ar-placement="wall"
-      ar-modes="scene-viewer webxr quick-look"
-      camera-controls
-      touch-action="pan-y"
-      shadow-intensity="1"
-      shadow-softness="0.5"
-      environment-image="neutral"
-      exposure="1"
-      interaction-prompt="none"
-      autoplay>
+    <p class="explore-text" id="exploreText">اضغط أدناه لاستكشاف نموذج ثلاثة الأبعاد</p>
 
-      <!-- Floating Interactive Hotspot Slot -->
-      <div slot="hotspot-quiz" data-position="0m 1.2m 0m" data-normal="0m 0m 1m">
-        <div class="hotspot-card">
-          <div class="hotspot-question" id="quizQuestion">
-            ما هي الطريقة الأفضل للتخلص من النفايات الإلكترونية؟
-          </div>
-          <button class="option-btn" onclick="checkAnswer(true, this)" id="opt1">إعادة التدوير في المراكز المعتمدة</button>
-          <button class="option-btn" onclick="checkAnswer(false, this)" id="opt2">الرمي في سلة النفايات العادية</button>
-          <div id="feedbackText" class="feedback-msg"></div>
-        </div>
-      </div>
-
-    </model-viewer>
-
-    <button class="btn btn-ar" onclick="launchAR()">
-      <i class="fas fa-vr-cardboard"></i> <span id="arBtnText">عرض في الواقع المعزز</span>
+    <!-- Main Button to Open Modal containing 3D Model -->
+    <button class="btn btn-explore" onclick="openModelModal()">
+      <i class="fas fa-cube"></i> <span id="exploreBtnText">اضغط للاستكشاف</span>
     </button>
+  </div>
 
+  <!-- Modal Overlay containing the 3D Model & AR Controls -->
+  <div class="modal-overlay" id="modelModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModelModal()">&times;</button>
+
+      <model-viewer
+        id="envModel"
+        src="modleV2.glb"
+        ios-src="modleV2.usdz"
+        alt="3D Environmental Model"
+        ar
+        ar-placement="wall"
+        ar-modes="scene-viewer webxr quick-look"
+        camera-controls
+        touch-action="pan-y"
+        shadow-intensity="1"
+        shadow-softness="0.5"
+        environment-image="neutral"
+        exposure="1"
+        interaction-prompt="none"
+        autoplay>
+
+        <!-- Floating Interactive Quiz Hotspot -->
+        <div slot="hotspot-quiz" data-position="0m 1.2m 0m" data-normal="0m 0m 1m">
+          <div class="hotspot-card">
+            <div class="hotspot-question" id="quizQuestion">
+              ما هي الطريقة الأفضل للتخلص من النفايات الإلكترونية؟
+            </div>
+            <button class="option-btn" onclick="checkAnswer(true, this)" id="opt1">إعادة التدوير في المراكز المعتمدة</button>
+            <button class="option-btn" onclick="checkAnswer(false, this)" id="opt2">الرمي في سلة النفايات العادية</button>
+            <div id="feedbackText" class="feedback-msg"></div>
+          </div>
+        </div>
+
+      </model-viewer>
+
+      <button class="btn btn-ar-trigger" onclick="launchAR()">
+        <i class="fas fa-vr-cardboard"></i> <span id="arBtnText">عرض في الواقع المعزز</span>
+      </button>
+    </div>
   </div>
 
   <footer>
@@ -286,6 +368,8 @@
         pageTitle: "يوم البيئة العالمي | البحرين",
         heading: "يوم البيئة الوطني 2027",
         slogan: "اكـتـشــف الـعـالــم...<br>مــن مـنـظــور جـديــــد",
+        exploreText: "اضغط أدناه لاستكشاف نموذج ثلاثة الأبعاد",
+        exploreBtn: "اضغط للاستكشاف",
         arBtn: "عرض في الواقع المعزز",
         question: "ما هي الطريقة الأفضل للتخلص من النفايات الإلكترونية؟",
         opt1: "إعادة التدوير في المراكز المعتمدة",
@@ -299,10 +383,12 @@
         pageTitle: "World Environment Day | Bahrain",
         heading: "National Environment Day 2027",
         slogan: "Discover the world...<br>From a new perspective",
+        exploreText: "Click below to explore the 3D model",
+        exploreBtn: "Click to Explore",
         arBtn: "View in Augmented Reality",
         question: "What is the best way to dispose of electronic waste?",
-        opt1: "Recycle at specialized centers",
-        opt2: "Throw in regular trash bins",
+        opt1: "Recycle at authorized centers",
+        opt2: "Dispose of in regular waste bins",
         correct: "Correct answer! Well done 🌱",
         wrong: "Incorrect answer, try again ❌",
         copyright: "&copy; World Environment Day - Kingdom of Bahrain 2027",
@@ -320,18 +406,41 @@
       document.getElementById('pageTitle').innerText = langData.pageTitle;
       document.getElementById('mainHeading').innerText = langData.heading;
       document.getElementById('sloganText').innerHTML = langData.slogan;
+      document.getElementById('exploreText').innerText = langData.exploreText;
+      document.getElementById('exploreBtnText').innerText = langData.exploreBtn;
       document.getElementById('arBtnText').innerText = langData.arBtn;
       document.getElementById('quizQuestion').innerText = langData.question;
       document.getElementById('opt1').innerText = langData.opt1;
       document.getElementById('opt2').innerText = langData.opt2;
       document.getElementById('copyrightText').innerHTML = langData.copyright;
       document.getElementById('langToggleBtn').innerText = langData.toggleBtn;
+      
+      // Reset hotspot button styles and message when toggling language
       document.getElementById('feedbackText').innerText = "";
+      document.getElementById('opt1').style.backgroundColor = "white";
+      document.getElementById('opt1').style.color = "var(--primary-green)";
+      document.getElementById('opt2').style.backgroundColor = "white";
+      document.getElementById('opt2').style.color = "var(--primary-green)";
+    }
+
+    function openModelModal() {
+      document.getElementById('modelModal').style.display = 'flex';
+    }
+
+    function closeModelModal() {
+      document.getElementById('modelModal').style.display = 'none';
     }
 
     function checkAnswer(isCorrect, element) {
       const langData = translations[currentLang];
       const feedback = document.getElementById('feedbackText');
+      
+      // Reset option buttons styling
+      document.getElementById('opt1').style.backgroundColor = "white";
+      document.getElementById('opt1').style.color = "var(--primary-green)";
+      document.getElementById('opt2').style.backgroundColor = "white";
+      document.getElementById('opt2').style.color = "var(--primary-green)";
+
       if (isCorrect) {
         feedback.innerText = langData.correct;
         feedback.style.color = "#27ae60";
